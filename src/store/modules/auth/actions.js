@@ -18,3 +18,15 @@ export function signUpRequest(name, email, password) {
     payload: { name, email, password },
   };
 }
+
+export function signFailure() {
+  return {
+    type: '@auth/SIGN_IN_FAILUERE',
+  };
+}
+
+export function logout() {
+  return {
+    type: '@auth/SIGN_OUT',
+  };
+}
