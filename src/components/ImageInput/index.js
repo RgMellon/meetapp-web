@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useField } from '@rocketseat/unform';
 
+import { MdAddAPhoto } from 'react-icons/md';
 import { Container } from './styles';
 
 import api from '~/services/api';
@@ -45,7 +46,13 @@ export default function ImageInput() {
   return (
     <Container>
       <label htmlFor="image">
-        <img src={preview} alt="" />
+        {preview && <img src={preview} alt="Banner" />}
+
+        {!preview && (
+          <div className="icon-add">
+            <MdAddAPhoto size={48} color="rgba(255, 255, 255, .7)" />
+          </div>
+        )}
 
         <input
           type="file"

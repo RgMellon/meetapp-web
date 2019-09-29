@@ -9,7 +9,7 @@ import { Form, Input, useField } from '@rocketseat/unform';
 import history from '../../services/history';
 import api from '../../services/api';
 
-import BannerInput from './BannerInput';
+import ImageInput from '../../components/ImageInput';
 
 import { Container, WrapperButton } from './styles';
 
@@ -31,7 +31,7 @@ export default function Meetapp() {
     });
   }, [fieldName, registerField]);
 
-  async function handleSubmit({ title, location, desc, banner_id }) {
+  async function handleSubmit({ title, location, desc, image_id }) {
     try {
       await api.post('meetapp', {
         date: selected,
@@ -39,7 +39,7 @@ export default function Meetapp() {
         location,
         desc,
         user_id: id,
-        image_id: banner_id,
+        image_id,
       });
 
       toast.success('Meetap adicionado com sucesso');
@@ -52,7 +52,8 @@ export default function Meetapp() {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <BannerInput name="banner_id" />
+        <ImageInput name="image_id" />
+        {/* <BannerInput name="banner_id" /> */}
         <Input name="title" placeholder="Título do Meetup" />
         <Input multiline name="desc" placeholder="Descrição completa" />
         <ReactDatePicker

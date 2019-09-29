@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   align-self: center;
   margin-bottom: 30px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   label {
     cursor: pointer;
